@@ -6,6 +6,13 @@ const THIRTY_DAYS_MS = 30 * 24 * 60 * 60 *1000;
 
 async function cleanupOldFiles() {
     const uploadsDir = path.join(__dirname,'../uploads');
+
+    if (!fs.existsSync(uploadsDir)) {
+        fs.mkdirSync(uploadsDir, { recursive: true });
+        console.log('Created uploads directory');
+        return; // nothing to clean up yet, folder was just created
+    }
+
     const files = fs.readdirSync(uploadsDir);
 
     for(const file of files){
