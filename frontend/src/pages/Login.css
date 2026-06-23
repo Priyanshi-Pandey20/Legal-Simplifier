@@ -1,0 +1,44 @@
+/* ===== LOGIN PAGE ===== */
+
+/* Hero panel — left side with background image */
+.login-hero-panel {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 48px 40px;
+  position: relative;
+  min-width: 0;
+}
+
+/* Form panel — right side */
+.login-form-panel {
+  width: 400px;
+  flex-shrink: 0;
+  padding: 48px 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  position: relative;
+}
+
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  /* Hide the hero panel on mobile — only show the form */
+  .login-hero-panel {
+    display: none !important;
+  }
+
+  /* Form takes full width */
+  .login-form-panel {
+    width: 100% !important;
+    padding: 40px 28px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .login-form-panel {
+    padding: 32px 20px !important;
+  }
+}

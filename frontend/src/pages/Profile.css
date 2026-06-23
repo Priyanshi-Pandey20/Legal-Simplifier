@@ -1,0 +1,16 @@
+/* ===== PROFILE PAGE ===== */
+/* 
+@media (max-width: 900px) {
+  .profile-main-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .profile-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .profile-settings-grid {
+    grid-template-columns: 1fr !important;
+  }
+} */

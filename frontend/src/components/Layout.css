@@ -1,0 +1,346 @@
+:root {
+  --bg2: #f0f2f7;
+  --bg3: #e4e7f0;
+  --navy: #0a1428;
+  --on-surface: #1a1c20;
+  --on-variant: #6b7080;
+  --outline-var: #e0e2ec;
+  --outline: #c4c6d0;
+  --gold: #e9c349;
+  --gold2: #b8952a;
+  --error: #ba1a1a;
+  --error-bg: #ffdad6;
+  --success-text: #1a6e35;
+  --success-bg: #e6f4ea;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --shadow-lg: 0 4px 16px rgba(0,0,0,0.12);
+}
+/* NAVBAR */
+.top-nav {
+  background: var(--navy);
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.top-nav::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 2px;
+  background: var(--gold);
+}
+.nav-logo {
+  font-family: 'Playfair Display', serif;
+  font-size: 18px;
+  color: #fff;
+  font-weight: 700;
+}
+.nav-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius);
+  background: var(--gold);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--navy);
+}
+
+/* BOTTOM NAV */
+.bottom-nav {
+  background: var(--navy);
+  display: flex;
+  padding: 10px 0 16px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+}
+.nav-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.35);
+  font-family: 'Inter', sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: none;
+}
+.nav-item.active { color: var(--gold); }
+.nav-item span:first-child { font-size: 18px; }
+
+/* CONTENT AREA */
+.content {
+  flex: 1;
+  padding: 20px;
+  padding-bottom: 80px;
+}
+/* Premium Profile Hero */
+.profile-hero {
+  position: relative;
+  background: linear-gradient(135deg, #0a0f1e 0%, #0d1f3c 40%, #0a1628 100%) !important;
+}
+
+/* Subtle dot pattern overlay */
+.profile-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(rgba(233,195,73,0.06) 1px, transparent 1px);
+  background-size: 24px 24px;
+  pointer-events: none;
+}
+
+/* Subtle glow behind avatar */
+.profile-hero-avatar {
+  box-shadow: 0 0 40px rgba(233,195,73,0.25) !important;
+}
+
+/* ===== DARK MODE ===== */
+[data-theme="dark"] {
+  --bg2: #111318;
+  --bg3: #1a1d27;
+  --navy: #e8eaf0;        /* ← KEY FIX: headings become light */
+  --on-surface: #e8eaf0;
+  --on-variant: #9aa0b0;
+  --outline-var: #2a2f3e;
+  --outline: #3a4050;
+  --gold: #e9c349;
+  --gold2: #c9a32a;
+  --error-bg: #3a1515;
+  --success-bg: #0f2a1a;
+}
+
+/* Page background */
+[data-theme="dark"] body {
+  background: #111318;
+  color: #e8eaf0;
+}
+
+[data-theme="dark"] #root {
+  background: #111318;
+}
+
+/* Cards */
+[data-theme="dark"] .card {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+}
+
+/* Navbars */
+[data-theme="dark"] .dashboard-navbar {
+  background: #0d1520 !important;
+}
+
+[data-theme="dark"] .top-nav {
+  background: #0d1520 !important;
+}
+
+/* Bottom nav */
+[data-theme="dark"] .bottom-nav {
+  background: #0d1520 !important;
+  border-top: 1px solid #2a2f3e;
+}
+
+/* Inputs */
+[data-theme="dark"] input {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+  color: #e8eaf0 !important;
+}
+
+[data-theme="dark"] select {
+  background: #1a1d27;
+  border-color: #2a2f3e;
+  color: #e8eaf0;
+}
+
+/* Navy backgrounds must stay dark — override --navy back to dark for these */
+[data-theme="dark"] .dashboard-navbar,
+[data-theme="dark"] .top-nav,
+[data-theme="dark"] .bottom-nav,
+[data-theme="dark"] .dashboard-upload-zone,
+[data-theme="dark"] .brand-banner,
+[data-theme="dark"] .dashboard-tips-card {
+  background: #0d1520 !important;
+}
+
+/* Upload doc type cards */
+[data-theme="dark"] .upload-doc-card {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+}
+
+/* Dropzone */
+[data-theme="dark"] .upload-dropzone {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+}
+
+/* Secondary buttons */
+[data-theme="dark"] .btn-secondary {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+  color: #e8eaf0 !important;
+}
+
+/* Filter buttons in history */
+[data-theme="dark"] button {
+  color: inherit;
+}
+
+/* Text classes */
+[data-theme="dark"] .t-display,
+[data-theme="dark"] .t-headline,
+[data-theme="dark"] .t-title {
+  color: #e8eaf0;
+}
+
+[data-theme="dark"] .t-body,
+[data-theme="dark"] .t-body-lg {
+  color: #9aa0b0;
+}
+
+[data-theme="dark"] .t-label {
+  color: #6b7888;
+}
+
+/* Page wrapper backgrounds */
+[data-theme="dark"] div[style*="background: var(--bg2)"],
+[data-theme="dark"] div[style*="background:var(--bg2)"] {
+  background: #111318 !important;
+}
+/* inline style divs that use navy as background color directly */
+[data-theme="dark"] div[style*="background: var(--navy)"],
+[data-theme="dark"] div[style*="background:var(--navy)"] {
+  background: #0d1520 !important;
+}
+
+/* inline style text that uses var(--navy) as color — needs to stay light */
+/* This handles all your JSX inline color: "var(--navy)" headings */
+[data-theme="dark"] div[style*="color: var(--navy)"],
+[data-theme="dark"] span[style*="color: var(--navy)"] {
+  color: #e8eaf0 !important;
+}
+
+/* Page outer wrapper — most pages have minHeight 100vh with bg var(--bg2) */
+[data-theme="dark"] .page {
+  background: #111318 !important;
+}
+/* ===== DARK MODE BUTTON FIXES ===== */
+
+/* Primary buttons */
+[data-theme="dark"] .btn-primary {
+  background: #1e3a5f !important;
+  color: #e8eaf0 !important;
+  border-color: #2a4f7a !important;
+}
+
+/* Gold buttons */
+[data-theme="dark"] .btn-gold {
+  background: var(--gold) !important;
+  color: #0a1428 !important;
+}
+
+/* All white background buttons in dark mode */
+[data-theme="dark"] button[style*="background: #fff"],
+[data-theme="dark"] button[style*="background:#fff"],
+[data-theme="dark"] button[style*="background: white"],
+[data-theme="dark"] button[style*="background: transparent"] {
+  background: #1a1d27 !important;
+  color: #e8eaf0 !important;
+  border-color: #2a2f3e !important;
+}
+
+/* Language buttons specifically */
+[data-theme="dark"] button[style*="background: var(--navy)"] {
+  background: #1b304b !important;
+  color: #e8eaf0 !important;
+}
+
+/* ===== DARK MODE AUDIT CARD FIXES ===== */
+
+/* White cards inside dashboard — audit cards */
+[data-theme="dark"] div[style*="background: #fff"],
+[data-theme="dark"] div[style*="background:#fff"],
+[data-theme="dark"] div[style*="background: white"] {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+}
+
+/* Audit card text colors */
+[data-theme="dark"] div[style*="background: #fff"] div,
+[data-theme="dark"] div[style*="background: #fff"] span {
+  color: inherit;
+}
+
+/* Progress bar background */
+[data-theme="dark"] div[style*="background: #f3f4f6"] {
+  background: #2a2f3e !important;
+}
+
+/* Stats sidebar cards */
+[data-theme="dark"] div[style*="background: #f3f4f6"],
+[data-theme="dark"] div[style*="background: #f0f0f0"] {
+  background: #2a2f3e !important;
+}
+
+/* Overview sidebar */
+[data-theme="dark"] div[style*="background: #fff"] {
+  background: #1a1d27 !important;
+}
+
+/* Quick actions buttons with white bg */
+[data-theme="dark"] .btn-secondary {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+  color: #e8eaf0 !important;
+}
+
+/* Filter buttons in history page */
+[data-theme="dark"] button[style*="background: #fff"] {
+  background: #1a1d27 !important;
+  color: #e8eaf0 !important;
+  border-color: #2a2f3e !important;
+}
+
+/* Icon boxes inside cards */
+[data-theme="dark"] div[style*="background: rgba(10,20,40,0.06)"] {
+  background: rgba(255,255,255,0.06) !important;
+}
+/* Audit cards white background fix */
+[data-theme="dark"] div[style*="background: #fff"],
+[data-theme="dark"] div[style*="background:#fff"] {
+  background: #1a1d27 !important;
+  border-color: #2a2f3e !important;
+}
+
+/* Audit card text colors */
+[data-theme="dark"] div[style*="background: #fff"] div,
+[data-theme="dark"] div[style*="background: #fff"] span {
+  color: #e8eaf0;
+}
+
+/* Progress bar track */
+[data-theme="dark"] div[style*="background: #f3f4f6"] {
+  background: #2a2f3e !important;
+}
+[data-theme="dark"] div[style*="background: #fff"] .t-title,
+[data-theme="dark"] div[style*="background: #fff"] div[style*="color: var(--navy)"] {
+  color: #e8eaf0 !important;
+}
+/* Greeting label fix */
+[data-theme="dark"] .t-label {
+  color: #6b7888 !important;
+}

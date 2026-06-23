@@ -1,0 +1,258 @@
+/* ===================================================
+   GLOBAL RESPONSIVE CSS — applies to all pages
+   Import this in your main App.css or index.css
+   =================================================== */
+/* ===== NAVBAR BASE STYLES ===== */
+.dashboard-navbar {
+  display: flex !important;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* ===== DASHBOARD BASE STYLES (desktop) ===== */
+.dashboard-layout {
+  flex: 1;
+  display: flex;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 32px 24px;
+  gap: 28px;
+}
+
+.dashboard-sidebar {
+  width: 300px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.dashboard-docs-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 16px;
+}
+
+/* ===== UPLOAD BASE STYLES (desktop) ===== */
+.upload-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 400px;
+  gap: 28px;
+  align-items: start;
+}
+
+/* ===== RESULTS BASE STYLES (desktop) ===== */
+.results-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 320px;
+  gap: 24px;
+  align-items: start;
+}
+
+
+/* ===== NAVBAR — hide on mobile, show on desktop ===== */
+@media (max-width: 768px) {
+  .dashboard-navbar {
+    display: none !important;
+  }
+
+  /* Hide text labels in nav links, keep icons */
+  .nav-desktop-label {
+    display: none !important;
+  }
+}
+
+@media (min-width: 769px) {
+  /* Hide bottom nav on desktop */
+  .bottom-nav {
+    display: none !important;
+  }
+}
+
+/* ===== DASHBOARD LAYOUT ===== */
+@media (max-width: 768px) {
+  .dashboard-layout {
+    flex-direction: column !important;
+    padding: 16px !important;
+    padding-bottom: 90px !important;
+    gap: 20px !important;
+  }
+
+  .dashboard-sidebar {
+    width: 100% !important;
+  }
+
+  .dashboard-docs-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .dashboard-docs-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .t-display {
+    font-size: 24px !important;
+  }
+}
+
+/* ===== UPLOAD PAGE LAYOUT ===== */
+@media (max-width: 768px) {
+  .upload-main-grid {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+    padding-bottom: 90px !important;
+  }
+
+  .upload-content {
+    padding: 20px 16px 90px !important;
+  }
+
+  .upload-header-title {
+    font-size: 26px !important;
+  }
+
+  .upload-step-card {
+    padding: 18px 16px !important;
+  }
+
+  .upload-doc-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .upload-doc-grid {
+    grid-template-columns: 1fr 1fr !important;
+  }
+}
+
+/* ===== RESULTS PAGE LAYOUT ===== */
+@media (max-width: 768px) {
+  .results-main-grid {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+    padding-bottom: 90px !important;
+  }
+}
+
+/* ===== HISTORY PAGE LAYOUT ===== */
+@media (max-width: 768px) {
+  .history-grid {
+    grid-template-columns: 1fr !important;
+    padding: 16px !important;
+    padding-bottom: 90px !important;
+  }
+}
+
+/* ===== BRAND BANNER ===== */
+@media (max-width: 768px) {
+  .brand-banner {
+    height: 160px !important;
+  }
+
+  .brand-banner-content {
+    padding: 0 20px !important;
+  }
+
+  .brand-banner-headline {
+    font-size: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .brand-banner {
+    height: 140px !important;
+  }
+
+  .brand-banner-headline {
+    font-size: 17px !important;
+  }
+}
+
+/* ===== PAGE BODY PADDING (all pages) ===== */
+@media (max-width: 768px) {
+  /* Any page body that uses max-width container */
+  .page-body {
+    padding: 20px 16px 90px !important;
+  }
+
+  /* Cards get smaller padding on mobile */
+  .card {
+    padding: 16px !important;
+  }
+
+  /* Reduce heading sizes globally */
+  .t-display {
+    font-size: 26px !important;
+  }
+
+  .t-headline {
+    font-size: 20px !important;
+  }
+}
+
+/* ===== ACTION BUTTONS ROW (Results page) ===== */
+@media (max-width: 600px) {
+  /* Stack action buttons vertically on small screens */
+  .action-buttons-row {
+    flex-direction: column !important;
+  }
+
+  .action-buttons-row button {
+    width: 100% !important;
+    justify-content: center !important;
+  }
+}
+
+/* ===== HERO RISK CARD (Results page) ===== */
+@media (max-width: 600px) {
+  .hero-risk-card {
+    flex-direction: column !important;
+    align-items: center !important;
+    padding: 24px 20px !important;
+    gap: 20px !important;
+  }
+}
+
+/* ===== CHAT BOX (Results page) ===== */
+@media (max-width: 480px) {
+  .chat-box {
+    margin: 0 -8px !important;
+    border-radius: 12px !important;
+  }
+}
+
+/* ===== PROFILE PAGE ===== */
+@media (max-width: 768px) {
+  .profile-grid {
+    /* grid-template-columns: 1fr !important; */
+    padding: 16px !important;
+    padding-bottom: 90px !important;
+  }
+}
+/* ===== PROFILE PAGE ===== */
+.profile-main-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+}
+
+.profile-settings-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+@media (max-width: 768px) {
+  .profile-main-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  .profile-settings-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
