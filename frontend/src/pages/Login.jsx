@@ -117,7 +117,7 @@ export default function Login() {
               borderRadius: '10px', border: '1px solid rgba(255,255,255,0.1)',
             }}>
               <div style={{ fontSize: '14px', color: 'rgba(255,255,255,0.6)', fontStyle: 'italic', lineHeight: 1.6, fontFamily: 'Inter, sans-serif' }}>
-                "I used to sign documents without understanding them. Legal Samjho showed me a risky eviction clause in my rent agreement before I signed!"
+                "I used to sign documents without understanding them. Legal Simplifier showed me a risky eviction clause in my rent agreement before I signed!"
               </div>
               <div style={{ fontSize: '13px', color: 'var(--gold)', marginTop: '10px', fontWeight: 600, fontFamily: 'Inter, sans-serif' }}>
                 — Rahul M., First-time tenant, Indore

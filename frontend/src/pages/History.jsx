@@ -82,7 +82,7 @@ const handleExportSinglePDF = (e, item) => {
   doc.setFont('helvetica', 'bold');
   doc.setFontSize(18);
   doc.setTextColor(255, 255, 255);
-  doc.text('Legal Samjho', pageWidth / 2, 18, { align: 'center' });
+  doc.text('Legal Simplifier', pageWidth / 2, 18, { align: 'center' });
 
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(10);
@@ -228,7 +228,7 @@ const handleExportSinglePDF = (e, item) => {
     doc.setFont('helvetica', 'italic');
     doc.setFontSize(8);
     doc.setTextColor(150, 150, 150);
-    doc.text('Legal Samjho — The law, finally in your language.', 14, 293);
+    doc.text('Legal Simplifier — The law, finally in your language.', 14, 293);
     doc.text(`Page ${i} of ${totalPages}`, pageWidth - 14, 293, { align: 'right' });
   }
 

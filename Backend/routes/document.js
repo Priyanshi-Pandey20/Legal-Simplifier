@@ -40,32 +40,33 @@ router.post('/analyze', authMiddleware, async (req, res) => {
   const { text, filename, language } = req.body;
 
   try {
-    const textHash = crypto.createHash('sha256').update(text).digest('hex')
+    const textHash = crypto.createHash('sha256').update(text).digest('hex');
 
-    const doc = await Document.create({
-      userId: req.user.id,
-      filename: filename || 'pasted_text',
-      originalText: text,
-      savedFile:req.body.savedFile || null,
-      textHash,
-    });
+    // Check if this user already uploaded this exact document
+    let doc = await Document.findOne({ userId: req.user.id, textHash });
 
-    const cachedDoc = await Document.findOne({ textHash, _id: { $ne: doc._id } });
+    if (!doc) {
+      doc = await Document.create({
+        userId: req.user.id,
+        filename: filename || 'pasted_text',
+        originalText: text,
+        savedFile: req.body.savedFile || null,
+        textHash,
+      });
+    }
+
+    const cachedAnalysis = await Analysis.findOne({ documentId: doc._id, language: language || 'english' });
     let result;
 
-    if(cachedDoc){
-      const cachedAnalysis = await Analysis.findOne({documentId:cachedDoc._id}).sort({createdAt:-1});
-      if(cachedAnalysis){
-        result = {
-          riskScore:cachedAnalysis.riskScore,
-          summary:cachedAnalysis.summary,
-          docType:cachedAnalysis.docType,
-          clauses:cachedAnalysis.clauses,
-        };
-      }
-    }
-    if(!result){
-      result = await analyzeDocument(text,language);
+    if (cachedAnalysis) {
+      result = {
+        riskScore: cachedAnalysis.riskScore,
+        summary: cachedAnalysis.summary,
+        docType: cachedAnalysis.docType,
+        clauses: cachedAnalysis.clauses,
+      };
+    } else {
+      result = await analyzeDocument(text, language);
     }
 
     const analysis = await Analysis.create({
